@@ -94,7 +94,6 @@ export default {
     },
     async showData() {
       const res = await this.callApi('get', `/api/admin/policy/`, null)
-      this.log(res)
       if (res.status == 200) {
         var data = res.data
         if (data.status == 'success') {

@@ -86,7 +86,6 @@ export default {
   methods: {
     async showData() {
       const res = await this.callApi("get", "/api/admin/categories", null);
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -110,10 +109,7 @@ export default {
       toast.close();
     },
     initTable() {
-      this.noData = false;
-      console.log("resf");
-      console.log("resf", this.$refs);
-
+      this.noData = false;   
       this.tableData = [];
       this.categories.forEach((element) => {
         this.tableData.push({

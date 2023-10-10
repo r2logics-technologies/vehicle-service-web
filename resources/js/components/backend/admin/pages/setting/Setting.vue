@@ -207,7 +207,6 @@ export default {
     },
     async showData() {
       const res = await this.callApi("get", "/api/admin/setting/", null);
-      this.log("data", res);
       var data = res.data;
       if (res.status == 200) {
         if (res.data.status == "success") {

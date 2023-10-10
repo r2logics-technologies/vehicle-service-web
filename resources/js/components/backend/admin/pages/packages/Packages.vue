@@ -106,7 +106,6 @@ export default {
 
       this.tableData = [];
       this.packages.forEach((element) => {
-        this.log(element.package_benefits);
         this.tableData.push({
           item: element,
           data: {

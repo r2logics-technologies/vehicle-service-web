@@ -110,7 +110,6 @@ export default {
       this.noData = false;
 
       this.tableData = [];
-      this.log(this.services);
       this.services.forEach((element) => {
         this.tableData.push({
           item: element,

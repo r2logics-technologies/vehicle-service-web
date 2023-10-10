@@ -553,7 +553,6 @@ export default {
   },
   created() {
     if (this.$route.path.includes("/service-center/profile/")) {
-      console.log("is center true");
       this.isCenter = true;
       this.pageTitle = "Profile";
       this.breadcrumbList[0].to = { name: "service-center.dashboard" };
@@ -613,7 +612,6 @@ export default {
   methods: {
     async getCategories() {
       const res = await this.callApi("get", "/api/admin/categories", null);
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -634,7 +632,6 @@ export default {
     },
     // async getServices() {
     //   const res = await this.callApi("get", "/api/admin/services", null);
-    //   this.log(res);
     //   if (res.status == 200) {
     //     var data = res.data;
     //     if (data.status == "success") {
@@ -700,7 +697,6 @@ export default {
         $("#cat" + index).prop("checked", true);
         this.catIds.push(id);
       }
-      this.log(this.catIds);
     },
     // selectService(id, index) {
     //   if (this.serviceIds.includes(id)) {
@@ -710,7 +706,6 @@ export default {
     //     $("#service" + index).prop("checked", true);
     //     this.serviceIds.push(id);
     //   }
-    //   this.log(this.catIds);
     // },
     selectImage(e) {
       const file = e.target.files[0];
@@ -755,7 +750,6 @@ export default {
         "/api/admin/service-centers/delete_document/" + id,
         null
       );
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -825,7 +819,6 @@ export default {
         "/api/admin/service-centers/edit/" + this.editedIndex,
         null
       );
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -1028,12 +1021,10 @@ export default {
       formData.append("bank_branch_name", this.editItem.shop_bank_branch_name);
       formData.append("upi", this.editItem.shop_upi);
       formData.append("ifsc", this.editItem.shop_ifsc);
-      this.log("document", this.documents);
       this.documents.forEach((ele) => {
         formData.append("document_file[]", ele.imageFilePath);
         formData.append("document_name[]", ele.name);
       });
-      this.log("res", formData);
       const res = await this.callApi(
         "post",
         "/api/admin/service-centers/save/update",

@@ -55,7 +55,6 @@ export default {
       }
     },
     getAvatarUrl(avatar) {
-      this.log('getAvatarUrl', avatar)
       return avatar != null && avatar != ''
         ? avatar
         : '/assets/img/undraw_profile.svg'

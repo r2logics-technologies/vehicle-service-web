@@ -78,7 +78,6 @@ export default {
                 "/api/service-center/service_center_bookings/notifications",
                 null
             );
-            this.log('notification',res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {

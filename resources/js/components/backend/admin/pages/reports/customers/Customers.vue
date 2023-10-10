@@ -185,7 +185,6 @@ export default {
         initTable() {
             this.noData = false;
             this.tableData = [];
-            this.log(this.customers);
             this.customers.forEach((element) => {
                 this.tableData.push({
                     item: element,

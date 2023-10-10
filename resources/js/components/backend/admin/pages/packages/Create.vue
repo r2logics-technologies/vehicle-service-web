@@ -271,7 +271,6 @@ export default {
         formData.append("benefit_name[]", ele.name);
         formData.append("benefit_time[]", ele.time);
       });
-      this.log("res", res);
 
       const res = await this.callApi(
         "post",
@@ -315,7 +314,6 @@ export default {
         "/api/admin/packages/edit/" + this.editedIndex,
         null
       );
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {

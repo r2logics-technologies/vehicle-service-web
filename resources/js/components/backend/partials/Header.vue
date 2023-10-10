@@ -230,7 +230,6 @@ export default {
   methods: {
     async showData() {
       const res = await this.callApi("get", "/api/admin/main", null);
-      this.log("data", res);
       if (res.status == 200) {
         if (res.data.status == "success") {
           this.user = res.data.user;

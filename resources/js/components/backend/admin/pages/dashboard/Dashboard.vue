@@ -337,8 +337,6 @@ export default {
       setTimeout(() => {
         const top10Customers = this.topCustomers.map(customer => customer.name);
         const top10CustomersBookings = this.topCustomers.map(customer => customer.bookings_count);
-        this.log(top10Customers);
-        this.log(top10CustomersBookings);
         const topCustomerCtx = this.$refs.topCustomerChart.getContext('2d');
 
          new Chart(topCustomerCtx, {
@@ -365,14 +363,12 @@ export default {
 
     async showData() {
       const res = await this.callApi("get", "/api/admin/dashboard", null);
-      // this.log("data->state", res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
           this.state = data.state;
           this.topCustomers = data.topCustomers;
           this.serviceCenters = data.service_centers;
-          this.log(this.topCustomers);
         } else {
           Toast.fire({
             icon: "warning",

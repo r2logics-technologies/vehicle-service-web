@@ -64,7 +64,6 @@ export default {
       const res = await this.callApi("post", "/api/admin/categories/save/update", data);
       if (res.status == 200) {
         var data = res.data;
-        console.log(data);
         if (data.status == "success") {
           this.$parent.updateData(data.category);
           this.resetFormData();

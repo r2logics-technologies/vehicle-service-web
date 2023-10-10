@@ -113,7 +113,6 @@ export default {
         var data = res.data;
         if (data.status == "success") {
           this.instructions = data.instructions;
-          this.log(this.instructions);
           this.initTable();
           toast = Toast.fire({
             icon: "success",

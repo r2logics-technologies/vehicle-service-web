@@ -62,7 +62,6 @@ export default {
     mounted() {
         if (this.$route.params.id) {
             this.id = this.$route.params.id;
-            console.log('iiiddddd', this.id);
             this.showData();
         }else{
             this.$router.go(-1);
@@ -71,13 +70,11 @@ export default {
     methods:{
          async showData() {
             const res = await this.callApi("get", `/api/service-center/customers/service-details/${this.id}`, null);
-            this.log('services', res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {
                     this.bookings = data.services;
                     this.states = data.states;
-                    this.log(this.states);
                     this.initTable();
                     toast = Toast.fire({
                         icon: "success",
@@ -103,7 +100,6 @@ export default {
          initTable() {
             this.noData = false;
             this.tableData = [];
-            this.log(this.bookings);
             this.bookings.forEach((element) => {
                 this.tableData.push({
                     item: element,

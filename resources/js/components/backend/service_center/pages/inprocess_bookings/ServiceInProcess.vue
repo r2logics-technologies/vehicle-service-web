@@ -153,13 +153,11 @@ export default {
                 "/api/service-center/service_center_bookings/inprogress_bookings",
                 null
             );
-            this.log(res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {
                     this.bookings = data.progress_bookings;
                     this.states = data.states;
-                    this.log(this.states);
                     this.initTable();
                     toast = Toast.fire({
                         icon: "success",
@@ -185,7 +183,6 @@ export default {
         initTable() {
             this.noData = false;
             this.tableData = [];
-            this.log(this.bookings);
             this.bookings.forEach((element) => {
                 this.tableData.push({
                     item: element,
@@ -284,7 +281,6 @@ export default {
                 `/api/service-center/customers/booking/statuscomplete/${item.booking_id}`,
                 data
             );
-            this.log(res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {

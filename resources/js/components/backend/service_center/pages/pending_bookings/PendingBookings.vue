@@ -96,7 +96,6 @@ export default {
         "/api/service-center/service_center_bookings/pending_bookings",
         null
       );
-      this.log("pending bookings", res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -126,7 +125,6 @@ export default {
     initTable() {
       this.noData = false;
       this.tableData = [];
-      this.log(this.bookings);
       this.bookings.forEach((element) => {
         this.tableData.push({
           item: element,
@@ -244,7 +242,6 @@ export default {
         `/api/service-center/customers/booking/status/${item.booking_id}`,
         data
       );
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {

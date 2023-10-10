@@ -168,7 +168,6 @@ export default {
     initTable() {
       this.noData = false;
       this.tableData = [];
-      this.log(this.service_centers);
       this.service_centers.forEach((element) => {
         this.tableData.push({
           item: element,

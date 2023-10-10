@@ -764,7 +764,6 @@ export default {
         "/api/admin/drivers/edit/" + this.editedIndex,
         null
       );
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -856,8 +855,6 @@ export default {
       formData.append("bank_branch_name", this.editItem.driver_bank_branch_name);
       formData.append("upi", this.editItem.driver_upi);
       formData.append("ifsc", this.editItem.driver_ifsc);
-
-      this.log("res", res);
 
       const res = await this.callApi(
         "post",

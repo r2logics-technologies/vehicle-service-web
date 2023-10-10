@@ -222,7 +222,6 @@ export default {
       this.messageIds = [];
     },
     selectedAllData() {
-      this.log("assets");
       if (this.editItem.selectAll === true) {
         this.messageForData.forEach((element, index) => {
           this.selectedData(element.user_id, index);
@@ -239,7 +238,6 @@ export default {
         $("#data" + index).prop("checked", true);
         this.messageIds.push(id);
       }
-      this.log(this.messageIds);
       if (this.messageForData.length == this.messageIds.length) {
         this.editItem.selectAll = true;
         $("#selectAll").prop("checked", true);
@@ -250,7 +248,6 @@ export default {
 
       if (res.status == 200) {
         var data = res.data;
-        this.log(data);
         if (data.status == "success") {
           this.messageForData = data.centers;
           this.editItem.selectAll = true;
@@ -278,7 +275,6 @@ export default {
       const res = await this.callApi("get", "/api/admin/drivers", null);
       if (res.status == 200) {
         var data = res.data;
-        this.log(data);
         if (data.status == "success") {
           this.messageForData = data.drivers;
           this.editItem.selectAll = true;

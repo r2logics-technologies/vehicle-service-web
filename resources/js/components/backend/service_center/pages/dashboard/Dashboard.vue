@@ -191,8 +191,6 @@ export default {
             setTimeout(() => {
                 const top10Customers = this.topCustomers.map(customer => customer.name);
                 const top10CustomersBookings = this.topCustomers.map(customer => customer.bookings_count);
-                this.log(top10Customers);
-                this.log(top10CustomersBookings);
                 const topCustomerCtx = this.$refs.topCustomerChart.getContext('2d');
 
                 new Chart(topCustomerCtx, {
@@ -217,7 +215,6 @@ export default {
 
         async showData() {
           const res = await this.callApi("get", "/api/service-center/service_center_bookings/dashboard", null);
-            console.log('Bookings',res);
           if (res.status == 200) {
             var data = res.data;
             if (data.status == "success") {

@@ -241,7 +241,6 @@ export default {
                 `/api/admin/reports/customers/service-invoice/${this.$route.params.booking_id}`,
                 null
             );
-            console.log("RESSSS>>>>>>", res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {

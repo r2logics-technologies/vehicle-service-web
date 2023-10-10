@@ -153,7 +153,6 @@ export default {
   },
   watch: {
     "editItem.service_price": function (val) {
-      console.log(val);
       if (val != null && val != "") {
         if (val && !this.priceRegex.test(val)) {
           this.errorItem.service_price = "Enter Valid Price";
@@ -190,7 +189,6 @@ export default {
     },
     async getCategories() {
       const res = await this.callApi("get", "/api/admin/categories", null);
-      this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -286,8 +284,6 @@ export default {
       if (!isValid) {
         return;
       }
-
-      this.log(this.editItem);
       Toast.fire({
         icon: "warning",
         title: "Uploading...",
@@ -302,7 +298,6 @@ export default {
       formData.append("name", this.editItem.service_name);
       formData.append("price", this.editItem.service_price);
       formData.append("cat_id", this.editItem.service_category_id);
-      this.log("res", formData);
       const res = await this.callApi(
         "post",
         "/api/admin/services/save/update",

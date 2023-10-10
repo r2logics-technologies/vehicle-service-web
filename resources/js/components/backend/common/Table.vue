@@ -230,7 +230,6 @@ export default {
       }, 2000)
     },
     updateTableId(id) {
-      this.log('call this function')
       this.tableNewId = id
     },
     editItem(item, index) {

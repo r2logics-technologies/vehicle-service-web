@@ -283,12 +283,10 @@ export default {
     },
     async showData() {
       const res = await this.callApi("get", "/api/admin/profile/", null);
-      this.log("data", res);
       if (res.status == 200) {
         if (res.data.status == "success") {
           this.user = res.data.user;
           this.srcImageFile = this.user.user_avatar;
-          this.log(this.srcImageFile);
         } else {
           toast.fire({
             icon: "warning",

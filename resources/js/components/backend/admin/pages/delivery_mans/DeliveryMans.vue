@@ -111,7 +111,6 @@ export default {
       this.noData = false;
 
       this.tableData = [];
-      this.log(this.drivers);
       this.drivers.forEach((element) => {
         this.tableData.push({
           item: element,
@@ -132,7 +131,6 @@ export default {
           },
         });
       });
-      // this.log("Table ", this.tableData);
       this.$refs.table.loadTable();
     },
     edit(item) {

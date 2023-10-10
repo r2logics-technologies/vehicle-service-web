@@ -228,7 +228,6 @@ export default {
     mounted() {
         if (this.$route.params.shop_id) {
             this.shop_id = this.$route.params.shop_id;
-            console.log("iishop_iddddd", this.shop_id);
         }
         toast = Toast.fire({
             icon: "warning",
@@ -244,7 +243,6 @@ export default {
                 `/api/admin/reports/service_centers/service_details/${this.shop_id}`,
                 null
             );
-            console.log("Bookings", res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {

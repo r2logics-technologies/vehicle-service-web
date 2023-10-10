@@ -71,7 +71,6 @@ export default {
         var data = res.data;
         if (data.status == "success") {
           this.customers = data.customers;
-          this.log(data);
           this.initTable();
           toast = Toast.fire({
             icon: "success",
@@ -98,7 +97,6 @@ export default {
       this.noData = false;
 
       this.tableData = [];
-      this.log(this.customers);
       this.customers.forEach((element) => {
         this.tableData.push({
           item: element,

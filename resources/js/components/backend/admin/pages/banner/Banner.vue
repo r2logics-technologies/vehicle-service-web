@@ -123,7 +123,6 @@ export default {
     },
     async showData() {
       const res = await this.callApi("get", "/api/admin/banners", null);
-      // this.log(res);
       if (res.status == 200) {
         var data = res.data;
         if (data.status == "success") {
@@ -168,7 +167,6 @@ export default {
           },
         });
       });
-      // this.log("Table ", this.tableData);
     },
     selectImage(e) {
       const file = e.target.files[0];
@@ -231,7 +229,6 @@ export default {
                 status: data.banner.banner_status,
               },
             });
-            this.log(this.tableData);
           }, 2500);
         } else {
           Toast.fire({

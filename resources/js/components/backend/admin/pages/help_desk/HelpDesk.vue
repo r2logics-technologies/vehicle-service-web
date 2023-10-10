@@ -139,7 +139,6 @@ export default {
         var data = res.data;
         if (data.status == "success") {
           this.helpDesks = data.help_desks;
-          this.log(this.helpDesks);
           this.initTable();
           toast = Toast.fire({
             icon: "success",
@@ -263,7 +262,6 @@ export default {
     },
     updateData(data) {
       if (this.editedIndex == -1) {
-        this.log(data);
         this.helpDesks.push(data);
         this.noData = false;
         this.tableData.push({

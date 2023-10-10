@@ -88,7 +88,6 @@ export default {
     mounted() {
         if (this.$route.params.id) {
             this.id = this.$route.params.id;
-            console.log('iiiddddd', this.id);
         }
          toast = Toast.fire({
             icon: "warning",
@@ -100,7 +99,6 @@ export default {
     methods:{
          async showData() {
             const res = await this.callApi("get", `/api/admin/reports/customers/service-details/${this.id}`, null);
-            this.log('services', res);
             if (res.status == 200) {
                 var data = res.data;
                 if (data.status == "success") {
@@ -132,7 +130,6 @@ export default {
          initTable() {
             this.noData = false;
             this.tableData = [];
-            this.log(this.bookings);
             this.bookings.forEach((element) => {
                 this.tableData.push({
                     item: element,
