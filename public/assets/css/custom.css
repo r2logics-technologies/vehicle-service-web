@@ -1,0 +1,42 @@
+.image-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.error-label {
+  font-size: 10px;
+  color: #ff5656;
+  float: right;
+}
+
+.error-field {
+  border: #ff5656 solid 1px !important;
+}
+
+
+/* Set the width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Customize the background color of the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Customize the color of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #e00000;
+  border-radius: 10px;
+}
+
+/* Customize the color of the scrollbar thumb when it's being hovered over */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
