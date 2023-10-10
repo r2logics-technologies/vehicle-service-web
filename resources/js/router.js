@@ -21,6 +21,7 @@ import AdminReportBookingDetails from "./components/backend/admin/pages/reports/
 import AdminReportBooking from './components/backend/admin/pages/reports/booking_reports/Bookings.vue'
 import AdminReportBookingInvoice from './components/backend/admin/pages/reports/booking_reports/BookingInvoice.vue'
 import AdminBanner from './components/backend/admin/pages/banner/Banner.vue'
+import AdminScanner from './components/backend/admin/pages/scanner/Scanner.vue'
 import AdminPolicy from './components/backend/admin/pages/privacy_and_policy/Policy.vue'
 import AdminTerms from './components/backend/admin/pages/term_and_condition/Terms.vue'
 import AdminHelpDesk from './components/backend/admin/pages/help_desk/HelpDesk.vue'
@@ -172,6 +173,12 @@ const routes = [
         name: "admin.banner",
         path: "/admin/banner",
         component: AdminBanner,
+        props: true,
+    },
+    {
+        name: "admin.scanner",
+        path: "/admin/scanner",
+        component: AdminScanner,
         props: true,
     },
     {

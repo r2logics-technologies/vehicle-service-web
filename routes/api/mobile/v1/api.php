@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/active/packages', [CustomerController::class, 'activePackages']);
         Route::get('/transactions', [CustomerController::class, 'transactionHistory']);
         Route::get('/instructions', [CustomerController::class, 'bookingInstruction']);
-      Route::get('/free_accessories', [CustomerController::class, 'bookingFreeAccessories']);
+        Route::get('/free_accessories', [CustomerController::class, 'bookingFreeAccessories']);
         // Customer Address
         Route::prefix('user-addresses')->group(function () {
             Route::get('/', [AddressController::class, 'getAddresses']);
@@ -56,7 +56,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         });
         Route::prefix('packages')->group(function () {
             Route::post('/', [PackageController::class, 'getPackages']);
-          	Route::get('/', [PackageController::class, 'getAllPackages']);
+            Route::get('/', [PackageController::class, 'getAllPackages']);
         });
         Route::get('/bookings', [BookingController::class, 'customerBookings']);
         Route::post('/booking/create', [BookingController::class, 'createBooking']);
@@ -74,6 +74,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //Drivers API
     Route::prefix('drivers')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'driverDashboardData']);
+        Route::get('/payment-scanner', [DashboardController::class, 'scannerImage']);
         Route::get('/service-centers', [BookingController::class, 'getServiceCenters']);
         Route::prefix('bookings')->group(function () {
             Route::post('/', [BookingController::class, 'driverBookings']);
@@ -95,9 +96,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
         });
     });
 
-     //COMMON API
+    //COMMON API
     Route::get('/settings', [SettingController::class, 'getData']);
-    Route::get('/policy',[PolicyController::class, 'getPolicy' ]);
-    Route::get('/terms',[PolicyController::class, 'getTerms' ]);
-    Route::get('/notifications',[NotificationController::class,'getData']);
+    Route::get('/policy', [PolicyController::class, 'getPolicy']);
+    Route::get('/terms', [PolicyController::class, 'getTerms']);
+    Route::get('/notifications', [NotificationController::class, 'getData']);
 });

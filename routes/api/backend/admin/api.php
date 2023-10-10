@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin\BannerController;
+use App\Http\Controllers\Backend\Admin\ScannerController;
 use App\Http\Controllers\Backend\Admin\BookingController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
 use App\Http\Controllers\Backend\Admin\CenterController;
@@ -93,6 +94,10 @@ Route::prefix('banners')->group(function () {
     Route::get('/', [BannerController::class, 'getData']);
     Route::post('/save/update', [BannerController::class, 'submitData']);
     Route::post('/change/status/{banner}', [BannerController::class, 'changeStatusData']);
+});
+Route::prefix('scanner')->group(function () {
+    Route::get('/', [ScannerController::class, 'getData']);
+    Route::post('/save/update', [ScannerController::class, 'submitData']);
 });
 Route::prefix('policy')->group(function () {
     Route::get('/', [PolicyController::class, 'getData']);

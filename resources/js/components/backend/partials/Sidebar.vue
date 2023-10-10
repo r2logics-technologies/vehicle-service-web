@@ -82,6 +82,12 @@ export default {
         subMenuList: [],
       },
       {
+        name: "Scanner",
+        to: { name: "admin.scanner" },
+        icon: "fa fa-qrcode",
+        subMenuList: [],
+      },
+      {
         name: "Categories",
         to: { name: "admin.categories" },
         icon: "fa fa-list",

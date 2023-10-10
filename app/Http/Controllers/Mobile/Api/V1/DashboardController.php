@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Mobile\Api\V1\ActivePackageResource;
 use App\Http\Resources\Mobile\Api\V1\BookingResource;
 use App\Http\Resources\Mobile\Api\V1\BannerResource;
+use App\Http\Resources\Mobile\Api\V1\ScannerResource;
 use App\Http\Resources\Mobile\Api\V1\CategoryResource;
 use App\Http\Resources\Mobile\Api\V1\PackageResource;
 use App\Http\Resources\Mobile\Api\V1\UserResource;
@@ -15,6 +16,7 @@ use App\Models\Booking;
 use App\Models\Category;
 use App\Models\Driver;
 use App\Models\Package;
+use App\Models\Scanner;
 use App\Models\ServiceCenter;
 use App\Models\User;
 use Carbon\Carbon;
@@ -90,7 +92,7 @@ class DashboardController extends Controller
 
         return response($response);
     }
-     public function driverDashboardData()
+    public function driverDashboardData()
     {
         $auth = Auth::user();
         if (!$auth) return response([
@@ -130,8 +132,7 @@ class DashboardController extends Controller
 
         $todayDeliveredBooking = Booking::where('driver_id', $driver->id)->completed()->whereDate('created_at', Carbon::now())->get();
 
-        if ($todayDeliveredBooking && count($todayDeliveredBooking) > 0) 
-        {
+        if ($todayDeliveredBooking && count($todayDeliveredBooking) > 0) {
             $response['today_delivered_bookings'] = count($todayDeliveredBooking);
         }
 
@@ -194,5 +195,29 @@ class DashboardController extends Controller
         $response['today_rejected_services'] = $rejected;
 
         return response($response);
+    }
+
+    public function scannerImage()
+    {
+        $auth = Auth::user();
+        if (!$auth) return response([
+            'status' => 'unauthorized',
+            'message' => 'user not available',
+        ]);
+        $scanner = Scanner::allowed()->first();
+        if ($scanner) {
+            return response([
+                'status' => 'success',
+                'status_code' => 200,
+                'message' => '',
+                'scanner' => new ScannerResource($scanner),
+            ]);
+        }
+
+        return response([
+            'status' => 'error',
+            'message' => 'scanner not available',
+            'scanner' => null
+        ]);
     }
 }
